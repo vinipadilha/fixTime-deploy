@@ -10,13 +10,13 @@ WORKDIR /app
 # dentro do contêiner. Isso inclui sua pasta 'PROJETO'.
 COPY . /app
 
-# --- Se o seu projeto usa Composer, use UMA destas linhas: ---
+# --- Se o seu projeto usa Composer, use UMA destas linhas (descomente a que aplica): ---
 # Se o arquivo composer.json está na raiz do seu REPOSITÓRIO (ou seja, agora em /app/composer.json):
 # RUN composer install --no-dev --optimize-autoloader
 #
 # Se o arquivo composer.json está DENTRO da sua pasta 'PROJETO' (ou seja, agora em /app/PROJETO/composer.json):
 # RUN cd PROJETO && composer install --no-dev --optimize-autoloader
-# ----------------------------------------------------------------
+# -------------------------------------------------------------------------------------
 
 # Configura as permissões corretas para os arquivos do seu projeto.
 # Isso garante que o usuário 'application' (padrão da imagem webdevops)
@@ -26,13 +26,14 @@ RUN find /app -type d -exec chmod 755 {} \; \
     && chown -R application:application /app
 
 # --- Configuração do Nginx: ---
-# Remove a configuração padrão do Nginx que a imagem base pode ter.
-# Isso é crucial para que sua configuração personalizada seja a única ativa.
-RUN rm -f /etc/nginx/conf.d/default.conf
+# Remove as configurações padrão do Nginx da imagem base em ambos os locais comuns.
+# Isso é crucial para que sua configuração personalizada seja a única ativa para o servidor principal.
+RUN rm -f /etc/nginx/conf.d/default.conf \
+    && rm -f /opt/docker/etc/nginx/conf.d/default.conf
 
-# Copia seu arquivo de configuração do Nginx (default.conf) para a pasta
-# onde o Nginx na imagem webdevops espera arquivos de configuração de sites.
-COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+# Copia seu arquivo de configuração do Nginx para o diretório de configurações ativas.
+# Esta é a ÚNICA linha COPY para o default.conf.
+COPY docker/nginx/default.conf /etc/nginx/sites-enabled/default.conf
 
 # Expõe a porta 80, que é a porta padrão para requisições HTTP.
 EXPOSE 80
