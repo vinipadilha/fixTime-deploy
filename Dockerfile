@@ -27,17 +27,18 @@ RUN find /app -type d -exec chmod 755 {} \; \
 
 # --- Configuração do Nginx: ---
 # Remove as configurações padrão do Nginx da imagem base em ambos os locais comuns.
-# Isso é para garantir que não haja conflitos, embora ao sobrescrever o nginx.conf
-# principal, isso se torne menos crítico.
+# Isso é crucial para que sua configuração personalizada seja a única ativa para o servidor principal.
 RUN rm -f /etc/nginx/conf.d/default.conf \
     && rm -f /opt/docker/etc/nginx/conf.d/default.conf \
     && rm -f /etc/nginx/sites-enabled/default.conf # Também remove o que copiamos antes aqui.
 
-# Copia seu arquivo de configuração do Nginx (default.conf) DIRETAMENTE PARA O ARQUIVO PRINCIPAL DO NGINX.
+# Copia seu arquivo de configuração do Nginx para o arquivo principal do Nginx.
 # ISSO VAI SOBRESCREVER QUALQUER CONFIGURAÇÃO EXISTENTE.
 COPY docker/nginx/default.conf /etc/nginx/nginx.conf
 
 # Expõe a porta 80, que é a porta padrão para requisições HTTP.
 EXPOSE 80
 
-# Não há linha CMD explícita aqui. A imagem webdevops/php-nginx já tem um ENTRYPOINT.
+# Não há linha CMD explícita aqui.
+# A imagem webdevops/php-nginx já tem um ENTRYPOINT que cuida
+# de iniciar o Nginx e o PHP-FPM automaticamente.
