@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/fixTime/PROJETO/src/public/assets/css/output.css">
+    <link rel="stylesheet" href="/src/public/assets/css/output.css">
     <title>Fix Time</title>
 </head>
 
@@ -15,7 +15,7 @@
       <div class="flex items-center justify-between 2xl:mx-60 xl:mx-40 md:mx-20 p-4">
         <div class="font-black flex-shrink-0">
           <a href="">
-            <img class="lg:h-14 h-12 w-auto" src="/fixTime/PROJETO/src/public/assets/images/fixtime-truck.png" alt="Logo">
+            <img class="lg:h-14 h-12 w-auto" src="/src/public/assets/images/fixtime-truck.png" alt="Logo">
           </a>
         </div>
 
@@ -31,11 +31,11 @@
         
         
           
-          <a href="/fixTime/PROJETO/src/views/Login/choice-cadastro.html" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm lg:px-5 lg:py-2.5 focus:outline-none cursor-pointer px-3 py-2">
+          <a href="/src/views/Login/choice-cadastro.html" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm lg:px-5 lg:py-2.5 focus:outline-none cursor-pointer px-3 py-2">
             Cadastro
           </a>
 
-          <a href="/fixTime/PROJETO/src/views/Login/choice-login.html" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 lg:px-5 lg:py-2.5  cursor-pointer ">
+          <a href="/src/views/Login/choice-login.html" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 lg:px-5 lg:py-2.5  cursor-pointer ">
             Login
           </a>
 

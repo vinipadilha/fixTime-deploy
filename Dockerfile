@@ -16,7 +16,25 @@ COPY . /app
 #
 # Se o arquivo composer.json está DENTRO da sua pasta 'PROJETO' (ou seja, agora em /app/PROJETO/composer.json):
 # RUN cd PROJETO && composer install --no-dev --optimize-autoloader
-# -------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------
+
+
+# ... (após COPY . /app) ...
+
+# --- INSTALA NODE.JS E RODA O BUILD DO TAILWIND ---
+# Instala Node.js e npm (Alpine Linux usa 'apk')
+RUN apk add --no-cache nodejs npm
+
+# Garante que o package.json está na raiz para o npm install
+# O 'COPY . /app' já fez isso. Agora, roda o install.
+RUN npm install
+
+# Roda o comando para gerar o CSS do Tailwind
+# Assumindo que seu script 'build:css' já sabe onde gerar o output.css
+# (ex: para PROJETO/src/public/assets/css/)
+RUN npm run build:css
+
+# ... (restante do Dockerfile, incluindo as permissões, Nginx config, etc.) ...
 
 # Configura as permissões corretas para os arquivos do seu projeto.
 # Isso garante que o usuário 'application' (padrão da imagem webdevops)
