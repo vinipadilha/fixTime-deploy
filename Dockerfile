@@ -9,12 +9,8 @@ WORKDIR /var/www/html
 # Copia todo o conteúdo do seu repositório para o contêiner.
 # Isso incluirá sua pasta 'PROJETO'.
 # É uma boa prática ter um arquivo .dockerignore na raiz do seu projeto para excluir arquivos desnecessários (como .git, node_modules, etc.).
+# Copia todo o conteúdo do seu repositório para o contêiner.
 COPY . .
-
-# Se você usa Composer e o arquivo composer.json está dentro da pasta PROJETO,
-# precisamos entrar nessa pasta para instalar as dependências.
-# Se composer.json estiver na raiz do seu repositório, remova o `cd PROJETO &&`
-RUN cd PROJETO && composer install --no-dev --optimize-autoloader
 
 # Copia o arquivo de configuração do Nginx personalizado para o contêiner.
 # Você precisará criar as pastas 'docker/nginx' e o arquivo 'default.conf' no seu repositório.
