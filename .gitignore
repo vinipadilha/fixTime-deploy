@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 
-/PROJETO/src/public/assets/css/output.css
 
 
 
