@@ -1,0 +1,7 @@
+.git
+.gitignore
+.env
+vendor/  # Se você instala as dependências localmente e não quer copiá-las
+node_modules/ # Se seu projeto tem algo de frontend
+.vscode/
+*.log
