@@ -1,19 +1,19 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 
 // Verifica autenticação
 if (!isset($_SESSION['id_usuario'])) {
     $_SESSION['error_message'] = 'Usuário não autenticado.';
-    header("Location: /fixTime/PROJETO/src/views/Login/login-user.php");
+    header("Location: /src/views/Login/login-user.php");
     exit;
 }
 
 // Verifica se o ID do veículo foi passado
 if (!isset($_POST['id_veiculo'])) {
     $_SESSION['error_message'] = 'ID do veículo não informado.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 }
 
@@ -29,7 +29,7 @@ $result = $stmt_verifica->get_result();
 
 if ($result->num_rows === 0) {
     $_SESSION['error_message'] = 'Veículo não encontrado ou você não tem permissão.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 }
 
@@ -46,7 +46,7 @@ $total_agendamentos = (int) $row['total'];
 
 if ($total_agendamentos > 0) {
     $_SESSION['alert_agendamento_veiculo'] = true;
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 }
 
@@ -62,7 +62,7 @@ if ($stmt_delete->execute()) {
     $_SESSION['error_message'] = 'Erro ao excluir veículo.';
 }
 
-header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/veiculos.php"); // <- Redireciona corretamente para a tela de veículos
+header("Location: /src/views/main-page/Cliente/veiculos.php"); // <- Redireciona corretamente para a tela de veículos
 exit;
 
 ?>

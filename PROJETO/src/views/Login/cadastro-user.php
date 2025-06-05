@@ -1,6 +1,6 @@
 <?php
 // Inclui o arquivo de conexão com o banco de dados
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 
 // Verifica se a conexão com o banco de dados foi estabelecida com sucesso
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($resultadoCpf->num_rows > 0) {
     $_SESSION['error_message'] = 'CPF já cadastrado. Faça login ou use outro CPF.';
-    header("Location: /fixTime/PROJETO/src/views/Login/cadastro-user.php");
+    header("Location: /src/views/Login/cadastro-user.php");
     return;
   }
 
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $resultadoEmail = $conexao->query($verificaEmail);
   if ($resultadoEmail->num_rows > 0) {
     $_SESSION['error_message'] = 'E-mail já cadastrado. Faça login ou use outro e-mail.';
-    header("Location: /fixTime/PROJETO/src/views/Login/cadastro-user.php");
+    header("Location: /src/views/Login/cadastro-user.php");
     return;
   }
 
@@ -49,11 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Executa a query e redireciona em caso de sucesso
   if ($conexao->query($sql) === TRUE) {
     $_SESSION['success_message'] = 'Usuário cadastrado com sucesso!';
-    header("Location: /fixTime/PROJETO/src/views/Login/login-user.php");
+    header("Location: /src/views/Login/login-user.php");
     return;
   } else {
     $_SESSION['error_message'] = "Erro: " . $sql . "<br>" . $conexao->error;
-    header("Location: /fixTime/PROJETO/src/views/Login/cadastro-user.php");
+    header("Location: /src/views/Login/cadastro-user.php");
     return;
   }
 }
@@ -67,19 +67,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fix-Time</title>
     <!-- Link para o arquivo CSS compilado do Tailwind -->
-    <link rel="stylesheet" href="/fixTime/PROJETO/src/public/assets/css/output.css">
+    <link rel="stylesheet" href="/src/public/assets/css/output.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-gray-50 flex items-center justify-center min-h-screen lg:p-0 p-3">
     <!-- Botão de voltar -->
     <div class="absolute top-0 left-0 p-4">     
-        <a href="/fixTime/PROJETO/src/views/Login/choice-cadastro.html" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Voltar</a>
+        <a href="/src/views/Login/choice-cadastro.html" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Voltar</a>
     </div>
 
     <!-- Container principal do formulário -->
     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm p-3 md:p-8 lg:p-4">
         <!-- Formulário de cadastro -->
-        <form class="lg:space-y-2 space-y-3" action="/fixTime/PROJETO/src/views/Login/cadastro-user.php" method="POST">
+        <form class="lg:space-y-2 space-y-3" action="/src/views/Login/cadastro-user.php" method="POST">
             <!-- Campo de nome completo -->
             <div>
                 <label for="first_name" class="block mb-1 text-sm font-medium text-gray-900">Nome completo</label>
@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Scripts necessários -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="/fixTime/PROJETO/src/public/assets/js/script.js"></script>
+    <script src="/src/public/assets/js/script.js"></script>
 
     <?php if (isset($_SESSION['error_message'])): ?>
     <script>

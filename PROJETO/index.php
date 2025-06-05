@@ -179,7 +179,7 @@
           <div class="w-full max-w-screen-xl mx-auto p-2 lg:px-12 md:py-8">
               <div class="sm:flex sm:items-center sm:justify-between">
                   <a href="index.html" class="flex items-center mb-4 lg:mb-0 space-x-3 rtl:space-x-reverse">
-                      <img src="/fixTime/PROJETO/src/public/assets/images/fixtime-truck.png" class="lg:h-14 h-12 w-auto"/>
+                      <img src="/src/public/assets/images/fixtime-truck.png" class="lg:h-14 h-12 w-auto"/>
                   </a>
                   <ul class="flex flex-wrap items-center mb-6 text-md font-medium text-gray-500 sm:mb-0 ">
                       <li>

@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 session_start();
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $verifica->close();
 
         if ($resultado['total'] > 0) {
-            header("Location: /fixTime/PROJETO/src/views/main-page/Oficina/agendamentos-oficina.php");
+            header("Location: /src/views/main-page/Oficina/agendamentos-oficina.php");
             exit;
         }
 
@@ -53,6 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Redireciona após a operação
-header("Location: /fixTime/PROJETO/src/views/main-page/Oficina/funcionarios.php");
+header("Location: /src/views/main-page/Oficina/funcionarios.php");
 exit;
 ?>

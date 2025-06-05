@@ -1,19 +1,19 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 session_start();
 
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['id_usuario'])) {
     $_SESSION['error_message'] = 'Usuário não autenticado.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 }
 
 // Verifica se o ID do serviço foi fornecido
 if (!isset($_POST['id_servico'])) {
     $_SESSION['error_message'] = 'ID do serviço não fornecido.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 }
 
@@ -38,7 +38,7 @@ $stmt_apaga->execute();
 
 if ($result->num_rows === 0) {
     $_SESSION['error_message'] = 'Você não tem permissão para excluir este agendamento.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 }
 
@@ -53,6 +53,6 @@ if ($stmt_excluir->execute()) {
     $_SESSION['error_message'] = 'Erro ao excluir agendamento.';
 }
 
-header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
 exit;
 ?> 

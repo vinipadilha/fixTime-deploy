@@ -1,6 +1,6 @@
 <?php
 // Inclui o arquivo de conexão com o banco de dados
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 
 // Inicia a sessão PHP para manter o estado do usuário
@@ -64,5 +64,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Redireciona de volta para a página de funcionários
-header("Location: /fixTime/PROJETO/src/views/main-page/Oficina/funcionarios.php");
+header("Location: /src/views/main-page/Oficina/funcionarios.php");
 exit;

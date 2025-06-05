@@ -1,6 +1,6 @@
 <?php
 // Inclui o arquivo de conexão com o banco de dados
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db(); // Estabelece conexão com o banco de dados
 
 // Verifica se a conexão foi estabelecida com sucesso
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'title' => 'Atenção!',
                 'text' => 'Você precisa excluir todos os funcionários antes de excluir o perfil da oficina.'
             ];
-            header("Location: /fixTime/PROJETO/src/views/main-page/Oficina/funcionarios.php");
+            header("Location: /src/views/main-page/Oficina/funcionarios.php");
             exit();
         }
 
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'title' => 'Sucesso!',
                 'text' => 'Perfil excluído com sucesso.'
             ];
-            header("Location: /fixTime/PROJETO/index.html");
+            header("Location: /index.html");
             exit();
         } else {
             $_SESSION['alert'] = [
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'title' => 'Erro!',
                 'text' => 'Erro ao excluir perfil: ' . $conexao->error
             ];
-            header("Location: /fixTime/PROJETO/src/views/main-page/Oficina/perfil-oficina.php");
+            header("Location: /src/views/main-page/Oficina/perfil-oficina.php");
             exit();
         }
 
@@ -188,7 +188,7 @@ if (!$oficina_id) {
             text: 'Usuário não autenticado. Faça login novamente.',
             confirmButtonColor: '#3085d6'
         }).then((result) => {
-            window.location.href = '/fixTime/PROJETO/src/views/Login/login-company.php';
+            window.location.href = '/src/views/Login/login-company.php';
         });</script>";
     exit();
 }
@@ -211,7 +211,7 @@ if ($result->num_rows > 0) {
             text: 'Oficina não encontrada. Faça login novamente.',
             confirmButtonColor: '#3085d6'
         }).then((result) => {
-            window.location.href = '/fixTime/PROJETO/src/views/Login/login-company.php';
+            window.location.href = '/src/views/Login/login-company.php';
         });</script>";
     exit();
 }
@@ -228,7 +228,7 @@ $conexao->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Inclui o arquivo CSS do Tailwind para estilização -->
-    <link rel="stylesheet" href="/fixTime/PROJETO/src/public/assets/css/output.css">
+    <link rel="stylesheet" href="/src/public/assets/css/output.css">
     <!-- Adiciona SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Fix Time</title>
@@ -254,14 +254,14 @@ $conexao->close();
                         </svg>
                     </button>
                     <!-- Logo da empresa -->
-                    <img src="/fixTime/PROJETO/src/public/assets/images/fixtime-truck.png" class="lg:h-14 h-12 me-3 "/>
+                    <img src="/src/public/assets/images/fixtime-truck.png" class="lg:h-14 h-12 me-3 "/>
                 </a>
 
                 <!-- Menu de navegação -->
                 <ul class="space-y-2 font-medium">
                     <!-- Link para página de funcionários -->
                     <li>
-                        <a href="/fixTime/PROJETO/src/views/main-page/Oficina/funcionarios.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
+                        <a href="/src/views/main-page/Oficina/funcionarios.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
                             <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"/>
                             </svg>
@@ -271,7 +271,7 @@ $conexao->close();
 
                     <!-- Link para perfil da oficina -->
                     <li>
-                        <a href="/fixTime/PROJETO/src/views/main-page/Oficina/perfil-oficina.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
+                        <a href="/src/views/main-page/Oficina/perfil-oficina.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
                             <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
                             </svg>
@@ -289,7 +289,7 @@ $conexao->close();
 
                     <!-- Link para registro de serviços -->
                     <li>
-                        <a href="/fixTime/PROJETO/src/views/main-page/Oficina/registrar-servicos.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
+                        <a href="/src/views/main-page/Oficina/registrar-servicos.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
                             <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.583 8.445h.01M10.86 19.71l-6.573-6.63a.993.993 0 0 1 0-1.4l7.329-7.394A.98.98 0 0 1 12.31 4l5.734.007A1.968 1.968 0 0 1 20 5.983v5.5a.992.992 0 0 1-.316.727l-7.44 7.5a.974.974 0 0 1-1.384.001Z"/>
                             </svg>
@@ -298,7 +298,7 @@ $conexao->close();
                     </li>
 
                     <li>
-                        <a href="/fixTime/PROJETO/src/views/main-page/Oficina/agendamentos-oficina.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
+                        <a href="/src/views/main-page/Oficina/agendamentos-oficina.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
                         <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/>
                         </svg>
@@ -310,7 +310,7 @@ $conexao->close();
 
             <!-- Botão de logout -->
             <div>
-                <a href="/fixTime/PROJETO/src/views/Login/logout.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="/src/views/Login/logout.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
                     </svg>
@@ -536,6 +536,6 @@ $conexao->close();
     <!-- Inclusão de bibliotecas JavaScript -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="/fixTime/PROJETO/src/public/assets/js/script.js"></script>
+    <script src="/src/public/assets/js/script.js"></script>
 </body>
 </html>

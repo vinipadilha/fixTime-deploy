@@ -1,6 +1,6 @@
 <?php
 // Inclui o arquivo de conexão com o banco de dados
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 
 // Verifica se a conexão com o banco de dados foi estabelecida com sucesso
@@ -35,18 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       // Redireciona para a página principal da oficina
       $_SESSION['success_message'] = 'Login realizado com sucesso!';
-      header("Location: /fixTime/PROJETO/src/views/main-page/Oficina/main-oficina.php");
+      header("Location: /src/views/main-page/Oficina/main-oficina.php");
       return;
     } else {
       // Mensagem de erro genérica por segurança
       $_SESSION['error_message'] = "Email ou senha inválidos.";
-      header("Location: /fixTime/PROJETO/src/views/Login/login-company.php");
+      header("Location: /src/views/Login/login-company.php");
       return;
     }
   } else {
     // Mensagem de erro genérica por segurança
     $_SESSION['error_message'] = "Email ou senha inválidos.";
-    header("Location: /fixTime/PROJETO/src/views/Login/login-company.php");
+    header("Location: /src/views/Login/login-company.php");
     return;
   }
 
@@ -64,21 +64,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fix-Time - Login Oficina</title>
   <!-- Link para o arquivo CSS compilado do Tailwind -->
-  <link rel="stylesheet" href="/fixTime/PROJETO/src/public/assets/css/output.css">
+  <link rel="stylesheet" href="/src/public/assets/css/output.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="bg-gray-50 flex items-center justify-center min-h-screen lg:p-0 p-3">
   <!-- Botão de voltar -->
   <div class="absolute top-0 left-0 p-4">
-    <a href="/fixTime/PROJETO/src/views/Login/choice-login.html" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Voltar</a>
+    <a href="/src/views/Login/choice-login.html" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Voltar</a>
   </div>
 
   <!-- Container principal do formulário -->
   <div class="lg:w-auto lg:max-w-full w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-md lg:pt-4 p-3 lg:p-6 md:p-8 mt-12 lg:mt-3 mb-2 mx-2">
     <!-- Logo da empresa -->
     <div class="mb-2 flex flex-col items-center text-center">
-      <img src="/fixTime/PROJETO/src/public/assets/images/fixtime-truck.png" class="h-16 w-auto">
+      <img src="/src/public/assets/images/fixtime-truck.png" class="h-16 w-auto">
     </div>
 
     <!-- Exibição de mensagens de erro -->
@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <!-- Link para cadastro -->
       <div>
         <p class="text-sm font-light text-gray-500">
-          Ainda não tem conta? <a href="/fixTime/PROJETO/src/views/Login/cadastro-company.php" class="font-medium hover:underline text-blue-500">Crie seu cadastro.</a>
+          Ainda não tem conta? <a href="/src/views/Login/cadastro-company.php" class="font-medium hover:underline text-blue-500">Crie seu cadastro.</a>
         </p>
       </div>
     </form>

@@ -1,6 +1,6 @@
 <?php
 // Inclui o arquivo de conexão com o banco de dados
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 
 // Verifica se a conexão com o banco de dados foi estabelecida com sucesso
@@ -49,7 +49,7 @@ if ($result->num_rows > 0) {
 } else {
     // Redireciona para a página de login se não encontrar dados
     $_SESSION['error_message'] = 'Oficina não encontrada. Faça login novamente.';
-    header("Location: /fixTime/PROJETO/src/views/Login/login-company.php");
+    header("Location: /src/views/Login/login-company.php");
     exit();
 }
 ?>
@@ -61,7 +61,7 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Inclui o arquivo CSS compilado do Tailwind -->
-    <link rel="stylesheet" href="/fixTime/PROJETO/src/public/assets/css/output.css">
+    <link rel="stylesheet" href="/src/public/assets/css/output.css">
     <title>Fix Time</title>
 </head>
 
@@ -86,7 +86,7 @@ if ($result->num_rows > 0) {
                         </svg>
                     </button>
                     <!-- Logo da empresa -->
-                    <img src="/fixTime/PROJETO/src/public/assets/images/fixtime-truck.png" class="lg:h-14 h-12 me-3 " />
+                    <img src="/src/public/assets/images/fixtime-truck.png" class="lg:h-14 h-12 me-3 " />
                 </a>
 
                 <!-- Lista de navegação -->
@@ -103,7 +103,7 @@ if ($result->num_rows > 0) {
 
                     <!-- Link para Serviços -->
                     <li>
-                        <a href="/fixTime/PROJETO/src/views/main-page/Funcionario/servicos-funcionario.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
+                        <a href="/src/views/main-page/Funcionario/servicos-funcionario.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
                             <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                               <path stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="m20.9532 11.7634-2.0523-2.05225-2.0523 2.05225 2.0523 2.0523 2.0523-2.0523Zm-1.3681-2.73651-4.1046-4.10457L12.06 8.3428l4.1046 4.1046 3.4205-3.42051Zm-4.1047 2.73651-2.7363-2.73638-8.20919 8.20918 2.73639 2.7364 8.2091-8.2092Z"/>
                               <path stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="m12.9306 3.74083 1.8658 1.86571-2.0523 2.05229-1.5548-1.55476c-.995-.99505-3.23389-.49753-3.91799.18657l2.73639-2.73639c.6841-.68409 1.9901-.74628 2.9229.18658Z"/>
@@ -114,7 +114,7 @@ if ($result->num_rows > 0) {
 
                     <!-- Link para Perfil -->
                     <li>
-                        <a href="/fixTime/PROJETO/src/views/main-page/Funcionario/perfil-funcionario.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
+                        <a href="/src/views/main-page/Funcionario/perfil-funcionario.php" class="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group">
                             <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" data-slot="icon" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
                             </svg>
@@ -128,7 +128,7 @@ if ($result->num_rows > 0) {
 
             <!-- Botão de Logout -->
             <div>
-                <a href="/fixTime/PROJETO/src/views/Login/logout.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="/src/views/Login/logout.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900" fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2"/>
                     </svg>
@@ -204,7 +204,7 @@ if ($result->num_rows > 0) {
     <!-- Inclusão de bibliotecas JavaScript -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-    <script src="/fixTime/PROJETO/src/public/assets/js/script.js"></script>
+    <script src="/src/public/assets/js/script.js"></script>
 </body>
 
 </html>

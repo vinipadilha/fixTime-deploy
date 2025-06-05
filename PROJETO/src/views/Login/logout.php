@@ -7,5 +7,5 @@ session_unset();
 session_destroy();
 
 // Redireciona pro login
-header("Location: /fixTime/PROJETO/index.html");
+header("Location: /index.html");
 exit;

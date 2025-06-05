@@ -1,11 +1,11 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 
 if (!isset($_SESSION['id_usuario'])) {
     $_SESSION['error'] = "Você precisa estar logado para avaliar.";
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 }
 
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$id_oficina || !$estrelas || !$id_servico) {
         $_SESSION['error'] = "Por favor, selecione uma avaliação com estrelas.";
-        header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+        header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
         exit;
     }
 
@@ -58,10 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $check_stmt->close();
     $conexao->close();
     
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 } else {
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/meus-agendamentos.php");
+    header("Location: /src/views/main-page/Cliente/meus-agendamentos.php");
     exit;
 }
 ?>

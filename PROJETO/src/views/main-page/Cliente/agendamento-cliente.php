@@ -1,12 +1,12 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['id_usuario'])) {
     $_SESSION['error_message'] = 'Usuário não autenticado.';
-    header("Location: /fixTime/PROJETO/src/views/Login/login-user.php");
+    header("Location: /src/views/Login/login-user.php");
     exit();
 }
 
@@ -15,7 +15,7 @@ $id_usuario = $_SESSION['id_usuario'];
 // Verifica se o id da oficina foi passado na URL
 if (!isset($_GET['id_oficina'])) {
     $_SESSION['error_message'] = 'Oficina não especificada.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/prestadores-servico.php");
+    header("Location: /src/views/main-page/Cliente/prestadores-servico.php");
     exit();
 }
 
@@ -31,7 +31,7 @@ if ($resultOficina->num_rows > 0) {
     $oficina = $resultOficina->fetch_assoc();
 } else {
     $_SESSION['error_message'] = 'Oficina não encontrada.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/prestadores-servico.php");
+    header("Location: /src/views/main-page/Cliente/prestadores-servico.php");
     exit();
 }
 $stmtOficina->close();
@@ -55,7 +55,7 @@ $stmtVeiculos->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/fixTime/PROJETO/src/public/assets/css/output.css">
+    <link rel="stylesheet" href="/src/public/assets/css/output.css">
     <title>Fix Time - Agendamento</title>
     <!-- Adiciona SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -89,7 +89,7 @@ $stmtVeiculos->close();
     }
     ?>
     <div class="absolute top-0 left-0 p-4">
-    <a href="/fixTime/PROJETO/src/views/main-page/Cliente/prestadores-servico.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Voltar</a>
+    <a href="/src/views/main-page/Cliente/prestadores-servico.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none">Voltar</a>
   </div>
     <div class="flex lg:py-14">
         <div class="mx-auto">
@@ -109,7 +109,7 @@ $stmtVeiculos->close();
                     </div>
 
                     <!-- Formulário de Agendamento -->
-                    <form method="POST" action="/fixTime/PROJETO/src/views/main-page/Cliente/processa_agendamento.php" class="space-y-6">
+                    <form method="POST" action="/src/views/main-page/Cliente/processa_agendamento.php" class="space-y-6">
                         <input type="hidden" name="id_oficina" value="<?= $id_oficina ?>">
 
                         <!-- Veículo -->

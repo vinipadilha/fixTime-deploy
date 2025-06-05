@@ -1,6 +1,6 @@
 <?php
 // Inclui o arquivo de conexão com o banco de dados
-include $_SERVER['DOCUMENT_ROOT'] . '/fixTime/PROJETO/src/views/connect_bd.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/src/views/connect_bd.php';
 $conexao = connect_db();
 
 // Inicia a sessão
@@ -9,14 +9,14 @@ session_start();
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['id_usuario'])) {
     $_SESSION['error'] = 'Usuário não autenticado. Faça login novamente.';
-    header("Location: /fixTime/PROJETO/src/views/Login/login-user.php");
+    header("Location: /src/views/Login/login-user.php");
     exit();
 }
 
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['error'] = 'Método de requisição inválido.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/veiculos.php");
+    header("Location: /src/views/main-page/Cliente/veiculos.php");
     exit();
 }
 
@@ -33,7 +33,7 @@ $quilometragem = filter_input(INPUT_POST, 'quilometragem', FILTER_SANITIZE_NUMBE
 // Validação dos campos obrigatórios
 if (!$id || !$tipo || !$marca || !$modelo || !$ano || !$cor || !$placa || !$quilometragem) {
     $_SESSION['error'] = 'Todos os campos são obrigatórios.';
-    header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/veiculos.php");
+    header("Location: /src/views/main-page/Cliente/veiculos.php");
     exit();
 }
 
@@ -46,7 +46,7 @@ try {
 
     if ($result->num_rows === 0) {
         $_SESSION['error'] = 'Veículo não encontrado ou não pertence ao seu usuário.';
-        header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/veiculos.php");
+        header("Location: /src/views/main-page/Cliente/veiculos.php");
         exit();
     }
 
@@ -74,5 +74,5 @@ try {
     $_SESSION['error'] = 'Erro ao atualizar veículo: ' . $e->getMessage();
 }
 
-header("Location: /fixTime/PROJETO/src/views/main-page/Cliente/veiculos.php");
+header("Location: /src/views/main-page/Cliente/veiculos.php");
 exit();
