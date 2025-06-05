@@ -37,3 +37,5 @@ EXPOSE 80
 # Comando que será executado quando o contêiner iniciar.
 # O supervisord gerencia o Nginx e o PHP-FPM para manter o serviço funcionando.
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# --- NOVA LINHA PARA O SUPERVISORD.CONF ---
+COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
