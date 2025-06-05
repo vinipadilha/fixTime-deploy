@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Meta tags e configurações básicas do HTML -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para o arquivo CSS compilado do Tailwind -->
+    <link rel="stylesheet" href="/fixTime/PROJETO/src/public/assets/css/output.css">
+    <title>Fix Time</title>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <!-- Container principal -->
+    <div class="">
+        <!-- Card de seleção de tipo de cadastro -->
+        <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
+            <!-- Título da página -->
+            <h5 class="mb-2 text-xl lg:text-2xl font-bold tracking-tight text-gray-900 w-full text-center lg:min-w-xs">Como você deseja se cadastrar?</h5>
+
+            <!-- Grid de opções de cadastro -->
+            <div class="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <!-- Opção de cadastro para Empresa -->
+                <a href="/fixTime/PROJETO/src/views/Login/cadastro-company.php" class="cursor-pointer ring-1 ring-gray-400 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-gray-100 focus:ring-4 focus:ring-gray-300">
+                    <!-- Ícone SVG de empresa/escritório -->
+                    <svg class="h-16 w-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path d="M48 0C21.5 0 0 21.5 0 48L0 464c0 26.5 21.5 48 48 48l96 0 0-80c0-26.5 21.5-48 48-48s48 21.5 48 48l0 80 96 0c26.5 0 48-21.5 48-48l0-416c0-26.5-21.5-48-48-48L48 0zM64 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm112-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM80 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM272 96l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16z"/>
+                    </svg>
+                    <!-- Texto descritivo da opção -->
+                    <p class="text-gray-900 font-medium">Empresa</p>
+                </a>
+
+                <!-- Opção de cadastro para Usuário -->
+                <a href="/fixTime/PROJETO/src/views/Login/cadastro-user.php" class="cursor-pointer ring-1 ring-gray-400 rounded-2xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-gray-100 focus:ring-4 focus:ring-gray-300">
+                    <!-- Ícone SVG de usuário/pessoa -->
+                    <svg class="h-16 w-16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
+                    </svg>
+                    <!-- Texto descritivo da opção -->
+                    <p class="text-gray-900 font-medium">Usuário</p>
+                </a>
+            </div>
+
+            <!-- Botão de voltar -->
+            <div class="mt-6">
+                <a href="/fixTime/PROJETO/index.html" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Voltar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
