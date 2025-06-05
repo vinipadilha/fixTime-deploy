@@ -1,6 +1,6 @@
 # Usa uma imagem base que já tem PHP-FPM e Nginx pré-instalados.
 # 'latest' pega a versão mais recente, mas você pode especificar, ex: richarvey/nginx-php-fpm:8.2
-FROM webdevops/php-nginx:8.2-alpine # Ou 8.1-alpine, 7.4-alpine, dependendo da versão do PHP que você usa.
+FROM webdevops/php-nginx:8.2-alpine
 
 # Define o diretório de trabalho dentro do contêiner.
 # Copiamos para /var/www/html e, em seguida, seus arquivos estarão em /var/www/html/PROJETO
