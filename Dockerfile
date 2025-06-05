@@ -2,10 +2,10 @@
 FROM webdevops/php-nginx:8.2-alpine
 
 # Define o diretório de trabalho dentro do contêiner.
-WORKDIR /var/www/html
+WORKDIR /app
 
 # Copia todo o conteúdo do seu repositório para o contêiner.
-COPY . .
+COPY . /app
 
 # --- LINHA OPCIONAL DO COMPOSER (Mantenha se usar, ajuste o caminho, ou remova se não usar) ---
 # Se composer.json está na raiz do repositório:
@@ -19,9 +19,5 @@ COPY . .
 # Copia seu default.conf diretamente para a pasta de configurações ativas do Nginx.
 COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
-# --- NOVA LINHA PARA O SUPERVISORD.CONF (Mantenha esta linha) ---
-COPY docker/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 EXPOSE 80
-
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
